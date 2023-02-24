@@ -1,6 +1,6 @@
 resources: 
   webhooks:
-    - webhook: IncomingWebhook
+    - webhook: reprowebhook
       connection: FilterServiceConnection
       filters:
         - path: requestType
@@ -10,5 +10,5 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      Write-Host ${{ convertToJson(parameters.awetesthook.requestType) }}
+      Write-Host ${{ convertToJson(parameters.reprowebhook.requestType) }}
       write-Host "Filter 1 pipeline with a value"
