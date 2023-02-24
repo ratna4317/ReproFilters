@@ -1,0 +1,14 @@
+resources: 
+  webhooks:
+    - webhook: reprowebhook
+      connection: FilterServiceConnection
+      filters:
+        - path: requestType
+          value: b
+steps:
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      Write-Host ${{ convertToJson(parameters.reprowebhook.requestType) }}
+      Write-Host "filter2 pipeline with b value"
